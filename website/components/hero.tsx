@@ -17,7 +17,12 @@ export const Hero = () => {
                             <span className="text-sm font-bold text-[#E90074] bg-white px-2 py-0.5 rounded-md uppercase">Prank App</span>
                         </div>
                         <button className="bg-[#E90074] text-white px-4 py-2 rounded-lg hover:bg-[#e28e4f]">
-                            <b>Download Now</b>
+                        <Link 
+                                    href="https://github.com/cu8code/FakeLiveStreamApp/releases/download/0.0.0/application-cd67d75f-de14-4d51-8d7f-7de38494c7fa.apk" // Replace with your download link
+                                    className="bg-[#E90074] text-white py-3 px-8 rounded-lg text-lg font-semibold hover:bg-[#e28e4f] transition-all duration-300"
+                                >
+                                    Download Now
+                                </Link>
                         </button>
                     </div>
 
@@ -37,7 +42,7 @@ export const Hero = () => {
                             {/* Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                 <Link 
-                                    href="#" // Replace with your download link
+                                    href="https://github.com/cu8code/FakeLiveStreamApp/releases/download/0.0.0/application-cd67d75f-de14-4d51-8d7f-7de38494c7fa.apk" // Replace with your download link
                                     className="bg-[#E90074] text-white py-3 px-8 rounded-lg text-lg font-semibold hover:bg-[#e28e4f] transition-all duration-300"
                                 >
                                     Download Now

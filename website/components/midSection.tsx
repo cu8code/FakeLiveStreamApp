@@ -1,13 +1,16 @@
 import { Shield, Bot, Check, X } from "lucide-react";
-import { WrapperGetStarted } from "./utils";
+import Link from "next/link";
 
 export const Call = () => {
     return (
-        <WrapperGetStarted>
             <button className="bg-[#E90074] text-white py-3 px-8 rounded-lg text-lg font-semibold hover:bg-[#e28e4f] transition-all duration-300">
-                Download Now
+            <Link 
+                                    href="https://github.com/cu8code/FakeLiveStreamApp/releases/download/0.0.0/application-cd67d75f-de14-4d51-8d7f-7de38494c7fa.apk" // Replace with your download link
+                                    className="bg-[#E90074] text-white py-3 px-8 rounded-lg text-lg font-semibold hover:bg-[#e28e4f] transition-all duration-300"
+                                >
+                                    Download Now
+                                </Link>
             </button>
-        </WrapperGetStarted>
     );
 };
 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView, Text, TextInput, TouchableOpacity } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons'; // Expo Icons
-import { useLiveStream } from '@/components/LiveStreamContext'; // Import the context hook
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { useLiveStream } from '@/components/LiveStreamContext';
 
 export default function HomeScreen() {
-  const { title, viewCount, setTitle, setViewCount } = useLiveStream(); // Access global state
+  const { title, viewCount, setTitle, setViewCount } = useLiveStream();
   const [newTitle, setNewTitle] = useState(title);
   const [newViewCount, setNewViewCount] = useState(viewCount.toString());
 
@@ -14,66 +14,72 @@ export default function HomeScreen() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* Hero Section */}
-      <View style={styles.card}>
-        <Text style={styles.heroTitle}>
-          Prank Live Stream App
-        </Text>
-        <Text style={styles.heroSubtitle}>
-          Create fake live streams to prank your friends and have a fun time.
-        </Text>
-      </View>
+    <View style={styles.fullContainer}>
+      <ScrollView contentContainerStyle={styles.container}>
+        {/* Hero Section */}
+        <View style={styles.card}>
+          <Text style={styles.heroTitle}>
+            Prank Live Stream App
+          </Text>
+          <Text style={styles.heroSubtitle}>
+            Create fake live streams to prank your friends and have a fun time.
+          </Text>
+        </View>
 
-      {/* Settings Section */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>
-          Settings
-        </Text>
-        <View style={styles.settingItem}>
-          <Text style={styles.settingLabel}>Title</Text>
-          <TextInput
-            style={styles.input}
-            value={newTitle}
-            onChangeText={setNewTitle}
-            placeholder="Enter a new title"
-          />
+        {/* Settings Section */}
+        <View style={styles.card}>
+          <Text style={styles.sectionTitle}>
+            Settings
+          </Text>
+          <View style={styles.settingItem}>
+            <Text style={styles.settingLabel}>Title</Text>
+            <TextInput
+              style={styles.input}
+              value={newTitle}
+              onChangeText={setNewTitle}
+              placeholder="Enter a new title"
+            />
+          </View>
+          <View style={styles.settingItem}>
+            <Text style={styles.settingLabel}>View Count</Text>
+            <TextInput
+              style={styles.input}
+              value={newViewCount}
+              onChangeText={setNewViewCount}
+              placeholder="Enter a new view count"
+              keyboardType="numeric"
+            />
+          </View>
+          <TouchableOpacity style={styles.saveButton} onPress={handleSaveSettings}>
+            <Text style={styles.saveButtonText}>Save Settings</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.settingItem}>
-          <Text style={styles.settingLabel}>View Count</Text>
-          <TextInput
-            style={styles.input}
-            value={newViewCount}
-            onChangeText={setNewViewCount}
-            placeholder="Enter a new view count"
-            keyboardType="numeric"
-          />
-        </View>
-        <TouchableOpacity style={styles.saveButton} onPress={handleSaveSettings}>
-          <Text style={styles.saveButtonText}>Save Settings</Text>
-        </TouchableOpacity>
-      </View>
 
-      {/* Disclaimer Section */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>
-          Disclaimer
-        </Text>
-        <Text style={styles.disclaimerText}>
-          PrankLiveStreamApp allows users to create fake-looking live streams to prank their friends. We do not take responsibility for the content broadcasted by users. Please use this app responsibly and respect community guidelines.
-        </Text>
-        <View style={styles.disclaimerIcon}>
-          <Ionicons name="warning" size={24} color="#FF6B6B" />
+        {/* Disclaimer Section */}
+        <View style={styles.card}>
+          <Text style={styles.sectionTitle}>
+            Disclaimer
+          </Text>
+          <Text style={styles.disclaimerText}>
+            PrankLiveStreamApp allows users to create fake-looking live streams to prank their friends. We do not take responsibility for the content broadcasted by users. Please use this app responsibly and respect community guidelines.
+          </Text>
+          <View style={styles.disclaimerIcon}>
+            <Ionicons name="warning" size={24} color="#FF6B6B" />
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  fullContainer: {
+    flex: 1, // Takes the full height of the screen
+    backgroundColor: '#FFFFFF', // Background color for the entire screen
+  },
   container: {
+    flexGrow: 1, // Ensures the ScrollView content can scroll
     padding: 16,
-    backgroundColor: '#FFFFFF', // White background
     paddingTop: 48,
   },
   card: {
